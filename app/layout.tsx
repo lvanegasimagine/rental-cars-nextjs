@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 // import localFont from "next/font/local";
-import { Outfit } from 'next/font/google'
+import { Outfit } from "next/font/google";
 import "./globals.css";
+import NextTopLoader from "nextjs-toploader";
+import { ClerkProvider } from "@clerk/nextjs";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -14,7 +16,7 @@ import "./globals.css";
 //   weight: "100 900",
 // });
 
-const outfit = Outfit({ subsets: ['latin'] })
+const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Admin TarreCars",
@@ -27,12 +29,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={outfit.className}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={outfit.className}>
+          <NextTopLoader color="#000" />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
