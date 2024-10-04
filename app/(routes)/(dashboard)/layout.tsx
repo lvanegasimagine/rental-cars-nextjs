@@ -1,5 +1,6 @@
 import React from "react";
 import { Sidebar } from "./dashboard/_components/Sidebar";
+import { NavbarDashboard } from "./dashboard/_components/NavbarDashboard";
 
 export default function DashboardLayout({
     children,
@@ -12,7 +13,7 @@ export default function DashboardLayout({
                 <Sidebar />
             </div>
             <div className="h-full w-full xl:ml-80">
-                Navbar Dashboard...
+                <NavbarDashboard />
                 <div className="h-max p-6">{children}</div>
             </div>
         </div>
