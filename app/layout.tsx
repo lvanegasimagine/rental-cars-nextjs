@@ -5,11 +5,8 @@ import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import {
   ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
 } from "@clerk/nextjs";
+import { Toaster } from '@/components/ui/toaster'
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -40,6 +37,7 @@ export default function RootLayout({
         <body className={outfit.className}>
           <NextTopLoader color="#000" />
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

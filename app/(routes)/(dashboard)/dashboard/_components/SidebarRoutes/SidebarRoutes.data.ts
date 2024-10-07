@@ -22,11 +22,11 @@ export const dataAdminSidebar = [
     {
         icon: SquareChartGantt,
         label: 'Manage your cars',
-        href: '/manage-cars'
+        href: '/dashboard/admin/cars-manager'
     },
     {
         icon: Calendar,
         label: 'All reserves',
-        href: '/reserves'
+        href: '/dashboard/admin/reserves'
     }
 ]
