@@ -21,8 +21,10 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { UploadButton } from "@/utils/uploadthing";
 
 export function FormAddCar() {
+    const [photoUploaded, setPhotoUploaded] = React.useState(false);
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -38,6 +40,7 @@ export function FormAddCar() {
         },
     });
 
+    const { isValid } = form.formState
     function onSubmit(values: z.infer<typeof formSchema>) {
         console.log("🚀 ~ onSubmit ~ values:", values);
     }
@@ -177,8 +180,49 @@ export function FormAddCar() {
                             </FormItem>
                         )}
                     />
+                    <FormField
+                        control={form.control}
+                        name="photo"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Car Image</FormLabel>
+                                <FormControl>
+                                    {photoUploaded ? (
+                                        <p className="text-sm font-bold text-pretty">Image Uploaded!</p>
+                                    ) : (
+                                        <UploadButton
+                                            className="rounded-lg bg-slate-600/20 text-slate-800 outline-dotted outline-4"
+                                            {...field}
+                                            endpoint="photo"
+                                            onClientUploadComplete={(res) => {
+                                                form.setValue("photo", res?.[0].url);
+                                                setPhotoUploaded(true);
+                                            }}
+                                            onUploadError={(error: Error) => {
+                                                console.error(error);
+                                            }}
+                                        />
+                                    )}
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="priceDay"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Price per day</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="$20" type='number' {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
                 </div>
-                <Button type="submit">Submit</Button>
+                <Button type="submit" className="w-full mt-5" disabled={!isValid}>Create Car</Button>
             </form>
         </Form>
     );
