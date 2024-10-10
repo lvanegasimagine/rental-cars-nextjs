@@ -16,8 +16,26 @@ import {
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ButtonEditCar } from "../ButtonEditCar";
+import axios from "axios";
 
 export function CardCar({ itemCar }: CardCarProps) {
+    const router = useRouter();
+
+    const deleteCar = async () => {
+        try {
+            await axios.delete(`/api/car/${itemCar.id}`);
+            toast({
+                title: "Car deleted successfully.",
+            });
+            router.refresh();
+        } catch (error) {
+            toast({
+                title: "Something went wrong.",
+                description: "Please try again later.",
+                variant: "destructive",
+            });
+        }
+    };
     return (
         <div className="relative rounded-lg bg-white p-1 shadow-md hover:shadow-lg">
             <Image
@@ -64,7 +82,7 @@ export function CardCar({ itemCar }: CardCarProps) {
                     </p>
                 </div>
                 <div className="mt-3 flex justify-between gap-x-4">
-                    <Button variant={"destructive"} onClick={() => console.log("Delete")}>
+                    <Button variant={"destructive"} onClick={deleteCar}>
                         Delete
                         <Trash className="ml-2 h-4 w-4" />
                     </Button>
