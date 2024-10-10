@@ -67,7 +67,7 @@ export function FormAddCar({ setOpenDialog }: FormAddCarProps) {
                         name="name"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>UserName</FormLabel>
+                                <FormLabel>Car Name</FormLabel>
                                 <FormControl>
                                     <Input placeholder="Tesla Model S Plaid" {...field} />
                                 </FormControl>
