@@ -36,21 +36,44 @@ export function CardCar({ itemCar }: CardCarProps) {
             });
         }
     };
+
+    const handlerPublishCar = async (publish: boolean) => {
+        try {
+            await axios.patch(`/api/car/${itemCar.id}`, { isPublish: publish })
+
+            if (publish) {
+                toast({
+                    title: "Car published successfully.",
+                })
+            } else {
+                toast({
+                    title: "Car unpublished successfully.",
+                })
+            }
+        } catch (error) {
+            toast({
+                title: "Something went wrong.",
+                description: "Please try again later.",
+                variant: "destructive",
+            })
+        }
+    }
     return (
         <div className="relative rounded-lg bg-white p-1 shadow-md hover:shadow-lg">
             <Image
                 src={itemCar.photo}
                 alt={itemCar.name}
                 width={400}
-                height={600}
+                height={400}
                 className="rounded-lg"
+                priority={true}
             />
             {itemCar.isPublish ? (
-                <p className="absolute right-0 top-0 w-full bg-green-700 p-1 text-center text-white">
+                <p className="absolute rounded-t-lg right-0 top-0 w-full bg-green-700 p-1 text-center text-white">
                     Published
                 </p>
             ) : (
-                <p className="absolute right-0 top-0 w-full bg-red-300 p-1 text-center text-white">
+                <p className="absolute rounded-t-lg right-0 top-0 w-full bg-red-300 p-1 text-center text-white">
                     Not Published
                 </p>
             )}
@@ -93,7 +116,7 @@ export function CardCar({ itemCar }: CardCarProps) {
                     <Button
                         className="mt-3 w-full"
                         variant="outline"
-                        onClick={() => console.log("Unpublish")}
+                        onClick={() => handlerPublishCar(false)}
                     >
                         Unpublish <Upload className="ml-2 h-4 w-4" />
                     </Button>
@@ -101,7 +124,7 @@ export function CardCar({ itemCar }: CardCarProps) {
                     <Button
                         className="mt-3 w-full"
                         variant="outline"
-                        onClick={() => console.log("Publish")}
+                        onClick={() => handlerPublishCar(true)}
                     >
                         Publish
                         <Upload className="ml-2 h-4 w-4" />
