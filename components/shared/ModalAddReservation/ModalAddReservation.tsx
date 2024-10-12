@@ -34,7 +34,7 @@ export function ModalAddReservation({ car }: ModalAddReservationProps) {
                         Selecciona las fechas en las quieres aplicar el coche
                     </AlertDialogTitle>
                     <AlertDialogDescription>
-                        <CalendarSelector setDateSelected={setDateSelected} />
+                        <CalendarSelector setDateSelected={setDateSelected} carPriceDay={car.priceDay} />
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
