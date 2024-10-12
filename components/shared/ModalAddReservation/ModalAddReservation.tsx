@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ModalAddReservationProps } from "./ModalAddReservation.types";
 import {
     AlertDialog,
@@ -13,8 +13,12 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Car } from "@prisma/client";
+import { CalendarSelector } from "./CalendarSelector";
+import { addDays } from "date-fns";
 
 export function ModalAddReservation({ car }: ModalAddReservationProps) {
+    const [dateSelected, setDateSelected] = useState<{ from: Date | undefined, to: Date | undefined }>({ from: new Date(), to: addDays(new Date(), 5) })
+
     const onReserveCar = async (car: Car, dateSelected: any) => { };
 
     return (
@@ -30,13 +34,12 @@ export function ModalAddReservation({ car }: ModalAddReservationProps) {
                         Selecciona las fechas en las quieres aplicar el coche
                     </AlertDialogTitle>
                     <AlertDialogDescription>
-                        This action cannot be undone. This will permanently delete your
-                        account and remove your data from our servers.
+                        <CalendarSelector setDateSelected={setDateSelected} />
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={() => onReserveCar(car, "")}>Reservar Vehiculo</AlertDialogAction>
+                    <AlertDialogAction onClick={() => onReserveCar(car, dateSelected)}>Reservar Vehiculo</AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
