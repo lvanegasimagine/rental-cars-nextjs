@@ -12,20 +12,23 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import { Car } from "@prisma/client";
 
 export function ModalAddReservation({ car }: ModalAddReservationProps) {
-    console.log("🚀 ~ ModalAddReservation ~ cars:", car);
+    const onReserveCar = async (car: Car, dateSelected: any) => { };
 
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button variant='outline' className="w-full mt-3">
+                <Button variant="outline" className="mt-3 w-full">
                     Reservar Vehiculo
                 </Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
-                    <AlertDialogTitle>Selecciona las fechas en las quieres aplicar el coche</AlertDialogTitle>
+                    <AlertDialogTitle>
+                        Selecciona las fechas en las quieres aplicar el coche
+                    </AlertDialogTitle>
                     <AlertDialogDescription>
                         This action cannot be undone. This will permanently delete your
                         account and remove your data from our servers.
@@ -33,7 +36,7 @@ export function ModalAddReservation({ car }: ModalAddReservationProps) {
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction>Continue</AlertDialogAction>
+                    <AlertDialogAction onClick={() => onReserveCar(car, "")}>Reservar Vehiculo</AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
