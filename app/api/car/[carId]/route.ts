@@ -39,15 +39,17 @@ export async function DELETE(
             return new NextResponse("Unauthorized", { status: 401 });
         }
 
-        const car = await db.car.delete({
+        const deletedCar = await db.car.delete({
             where: {
                 id: carId,
                 userId,
             },
         });
 
-        return NextResponse.json(car);
+        return NextResponse.json(deletedCar);
     } catch (error) {
+        console.log('[CAR ID DELETE]', error)
+
         return new NextResponse("Internal Error", { status: 500 });
     }
 }

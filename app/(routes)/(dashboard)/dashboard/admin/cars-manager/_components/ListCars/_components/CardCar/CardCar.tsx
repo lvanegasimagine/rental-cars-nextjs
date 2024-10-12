@@ -50,6 +50,7 @@ export function CardCar({ itemCar }: CardCarProps) {
                     title: "Car unpublished successfully.",
                 })
             }
+            router.refresh()
         } catch (error) {
             toast({
                 title: "Something went wrong.",
