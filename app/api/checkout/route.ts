@@ -50,7 +50,7 @@ export async function POST(
             {
                 quantity: 1,
                 price_data: {
-                    currency: "EUR",
+                    currency: "usd",
                     product_data: {
                         name: carName,
                     },

@@ -23,11 +23,8 @@ const DashboardPage = async () => {
     return (
         <div>
             <div className="flex justify-between">
-                <h2 className="text-3xl font-bold">List of cars</h2>
+                <h2 className="text-3xl font-bold mb-6">List of cars</h2>
             </div>
-            {/* <p className="mt-2 text-sm text-muted-foreground text-slate-500">
-                Listado de coches
-            </p> */}
             <ListCars cars={cars} />
         </div>
     );
