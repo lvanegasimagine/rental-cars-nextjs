@@ -18,7 +18,6 @@ const CarsManager = async () => {
             createdAt: "desc"
         }
     })
-    console.log("🚀 ~ CarsManager ~ car:", cars)
     return (
         <div>
             <div className="flex justify-between">

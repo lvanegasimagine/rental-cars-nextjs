@@ -10,7 +10,6 @@ import { useLovedCars } from "@/hooks/use-loved-cars";
 
 export function ListCars({ cars }: ListCarsProps) {
     const { addLovedItem, lovedItems, removeLovedItem } = useLovedCars();
-    console.log("🚀 ~ ListCars ~ lovedItems:", lovedItems);
     return (
         <div className="grid-cols-custom-grid grid gap-6">
             {cars.map((car: Car) => {

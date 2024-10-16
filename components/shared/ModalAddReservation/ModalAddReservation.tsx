@@ -35,7 +35,7 @@ export function ModalAddReservation({ car }: ModalAddReservationProps) {
             window.location = response.data.url
             toast({ title: 'Car Reserved 👌' })
         } catch (error) {
-            console.log("🚀 ~ onReserveCar ~ error:", error)
+            toast({ title: 'Something went wrong.', variant: 'destructive' })
         }
     };
 
