@@ -1,1 +1,1 @@
-export * from './TableReserves'
+export * from './TableReservesAdmin'

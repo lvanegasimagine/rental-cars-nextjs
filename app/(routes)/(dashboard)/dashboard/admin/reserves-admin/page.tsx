@@ -4,7 +4,7 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { Link } from "lucide-react";
 import { redirect } from "next/navigation";
 import React from "react";
-import { TableReserves } from "./_components/TableReserves";
+import { TableReservesAdmin } from "./_components/TableReserves";
 
 const ReservesAdminPage = async () => {
     const { userId } = auth();
@@ -30,7 +30,7 @@ const ReservesAdminPage = async () => {
                     </Link>
                 </div>
             ) : (
-                <TableReserves orders={orders} />
+                <TableReservesAdmin orders={orders} />
             )}
         </div>
     );
