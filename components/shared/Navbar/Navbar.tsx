@@ -5,6 +5,7 @@ import { Heart, Loader, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { FavoritesCar } from "../FavoritesCar/FavoritesCar";
 
 export function Navbar() {
     const { userId } = auth();
@@ -21,9 +22,7 @@ export function Navbar() {
                     <Link href={"/dashboard"}>Dashboard</Link>
                     {userId ? (
                         <>
-                            <Link href={"/loved-cars"}>
-                                <Heart strokeWidth={1} className="cursor-pointer" />
-                            </Link>
+                            <FavoritesCar />
                             <ClerkLoading>
                                 <Loader className="h-6 w-6 animate-spin text-muted-foreground" />
                             </ClerkLoading>

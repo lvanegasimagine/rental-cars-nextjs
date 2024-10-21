@@ -75,8 +75,8 @@ export function ListCars({ cars }: ListCarsProps) {
                                     <div className="flex items-center justify-center gap-x-3">
                                         <ModalAddReservation car={car} />
                                         <Heart
-                                            className={`mt-2 cursor-pointer ${likedCar && "fill-black"}`}
-                                            onClick={() =>
+                                            className={`mt-2 cursor-pointer ${likedCar && "fill-red-700 stroke-red-700"}`}
+                                            onClick={
                                                 likedCar
                                                     ? () => removeLovedItem(car.id)
                                                     : () => addLovedItem(car)
