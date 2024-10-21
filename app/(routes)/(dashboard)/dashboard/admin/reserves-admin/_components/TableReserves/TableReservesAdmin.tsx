@@ -53,7 +53,7 @@ export function TableReservesAdmin({ orders }: TableReservesProps) {
                 <TableRow>
                     <TableCell colSpan={5}>Total</TableCell>
                     <TableCell className="">{currency.format(totalAmount)}</TableCell>
-                </TableRow>console.warn();
+                </TableRow>
 
             </TableFooter>
         </Table>

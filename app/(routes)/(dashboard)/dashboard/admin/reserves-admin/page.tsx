@@ -5,12 +5,13 @@ import { Link } from "lucide-react";
 import { redirect } from "next/navigation";
 import React from "react";
 import { TableReservesAdmin } from "./_components/TableReserves";
+import { isAdmin } from "@/lib/isAdmin";
 
 const ReservesAdminPage = async () => {
     const { userId } = auth();
     const user = await currentUser();
 
-    if (!userId || !user) return redirect("/");
+    if (!userId || !user || !isAdmin(userId)) return redirect("/dashboard");
 
     const orders = await db.order.findMany({
         orderBy: {

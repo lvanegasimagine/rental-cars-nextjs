@@ -7,7 +7,7 @@ import React from 'react'
 export function FavoritesCar() {
     const { lovedItems } = useLovedCars()
     return (
-        <Link href='/lover-cars'>
+        <Link href='/loved-cars'>
             <Heart strokeWidth={1} className={`cursor-pointer ${lovedItems.length > 0 && 'fill-red-700 stroke-red-700'}`} />
         </Link>
     )
