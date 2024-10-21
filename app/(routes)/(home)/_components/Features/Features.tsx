@@ -1,6 +1,5 @@
 import React from 'react'
 import { dataFeatures } from './Features.data'
-import { Icon } from 'lucide-react'
 import { Reveal } from '@/components/shared/Reveal'
 
 export function Features() {

@@ -8,7 +8,7 @@ import { Fuel, Gauge, Gem, Heart, Users, Wrench } from "lucide-react";
 import Image from "next/image";
 
 export function ListLovedCars() {
-    const { addLovedItem, lovedItems, removeLovedItem } = useLovedCars();
+    const { lovedItems, removeLovedItem } = useLovedCars();
 
     return (
         <>

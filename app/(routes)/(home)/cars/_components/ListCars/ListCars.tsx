@@ -35,7 +35,6 @@ export function ListCars({ cars }: ListCarsProps) {
                         people,
                         engine,
                         cv,
-                        id,
                     } = car;
                     const likedCar = lovedItems.some((item) => item.id === car.id);
                     return (

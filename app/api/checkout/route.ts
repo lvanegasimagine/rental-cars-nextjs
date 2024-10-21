@@ -24,6 +24,7 @@ export async function POST(
         };
     },
 ) {
+    console.log("🚀 ~ params:", params)
     try {
         const { userId } = auth();
         const { carId, priceDay, startDate, endDate, carName } = await req.json();

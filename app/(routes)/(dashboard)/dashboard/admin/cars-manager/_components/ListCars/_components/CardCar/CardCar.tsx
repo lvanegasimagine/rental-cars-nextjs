@@ -4,7 +4,6 @@ import { CardCarProps } from "./CardCar.types";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import {
-    Car,
     Fuel,
     Gauge,
     Gem,
@@ -29,6 +28,7 @@ export function CardCar({ itemCar }: CardCarProps) {
             });
             router.refresh();
         } catch (error) {
+            console.log("🚀 ~ deleteCar ~ error:", error)
             toast({
                 title: "Something went wrong.",
                 description: "Please try again later.",
@@ -52,6 +52,7 @@ export function CardCar({ itemCar }: CardCarProps) {
             }
             router.refresh()
         } catch (error) {
+            console.log("🚀 ~ handlerPublishCar ~ error:", error)
             toast({
                 title: "Something went wrong.",
                 description: "Please try again later.",

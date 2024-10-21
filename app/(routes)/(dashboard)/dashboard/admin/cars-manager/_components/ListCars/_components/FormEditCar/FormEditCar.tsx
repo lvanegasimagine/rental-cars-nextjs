@@ -55,6 +55,7 @@ export function FormEditCar({ carData, setOpenDialog }: FormEditCarProps) {
             toast({ title: "Car Edited successfully." });
             router.refresh();
         } catch (error) {
+            console.log("🚀 ~ onSubmit ~ error:", error)
             toast({ title: "Something went wrong.", variant: "destructive" });
         }
     }

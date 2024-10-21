@@ -54,6 +54,7 @@ export function FormAddCar({ setOpenDialog }: FormAddCarProps) {
             toast({ title: 'Car added successfully.' })
             router.refresh()
         } catch (error) {
+            console.log("🚀 ~ onSubmit ~ error:", error)
             toast({ title: 'Something went wrong.', variant: 'destructive' })
         }
     }

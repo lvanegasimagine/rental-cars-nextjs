@@ -1,6 +1,6 @@
 "use client";
 import { Car } from "@prisma/client";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FilterAndListCarProps } from "./FiltersAndListCars.types";
 import { ListCars } from "../ListCars";
 import { FiltersCar } from "../FiltersCars";

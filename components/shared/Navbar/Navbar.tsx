@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
-import { Heart, Loader, User } from "lucide-react";
+import { Loader, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
