@@ -77,8 +77,8 @@ export async function POST(
             mode: "payment",
             billing_address_collection: "required",
             phone_number_collection: { enabled: true },
-            success_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/order-confirmation`,
-            cancel_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/order-error`,
+            success_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL!}/order-confirmation`,
+            cancel_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL!}/order-error`,
             metadata: { orderId: order.id, carId, startDate, endDate, numberOfDays },
         });
 
